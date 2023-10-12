@@ -58,16 +58,31 @@ const textsArray = [
   "DIY hair care recipes using natural ingredients",
   "Top documentaries to broaden your horizons",
 ];
-  
+
+
+let totalCount = document.getElementById('total-search-count').textContent = textsArray.length
+let CompletedCount = document.getElementById('completed-search-count')
+let EstimatedPoint = document.getElementById('estimated-point')
+let searchCount = 0
+
+
 // Function to perform a search with a delay
 function searchWithDelayInNewWindow(keyword, delay) {
   return new Promise((resolve) => {
     setTimeout(() => {
       const searchUrl = `https://www.bing.com/search?q=${encodeURIComponent(keyword)}`;
-      let current_window = window.open(searchUrl, '_blank');
+      var current_window = window.open(searchUrl, '_blank');
       resolve();
+      searchCount++;
+      CompletedCount.textContent = searchCount
+      EstimatedPoint.textContent = searchCount * 3
       setTimeout(() => {
-        current_window.close()
+        try {
+          current_window.close()
+        }
+        catch {
+          console.log('Some issues are there at closing the window');
+        }
       }, delay)
     }, delay);
   });
@@ -75,16 +90,16 @@ function searchWithDelayInNewWindow(keyword, delay) {
 
 async function performSearchesWithDelay(textsArray, delayBetweenSearches) {
   for (const keyword of textsArray) {
+    if (searchCount*3>=90) return
     await searchWithDelayInNewWindow(keyword, delayBetweenSearches);
   }
 }
 
-// Usage: Call this function to start the searches with a 3-second delay between each search
-performSearchesWithDelay(textsArray, 3000)
+//Main Starting function
+performSearchesWithDelay(textsArray, 2600)
   .then(() => {
-    // All searches have completed
     console.log("All searches have completed.");
   })
   .catch((error) => {
-    console.error("An ERRR HAS ODCCU")
+    console.error("An ER0RR HAS 0CCURED")
   })

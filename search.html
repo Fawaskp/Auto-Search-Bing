@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/011/660/689/original/3d-money-icon-illustration-png.png">
+    </link>
+    <title>Earner !</title>
+
+    <style>
+        main {
+            width: 100%;
+            height: 100%;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .head-container,
+        .count-displayer ,
+        .point-displayer{
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-direction: column;
+        }
+
+        .head-container h1 {
+            font-size: 2rem;
+        }
+
+        #head-highlight{
+            color: rgb(47, 210, 164);
+        }
+        
+        #count-highlight {
+            color: rgb(237, 143, 28);
+        }
+
+        .point-displayer{
+            color: rgb(44, 119, 224);
+        }
+    </style>
+
 </head>
+
+<main>
+    <div class="head-container">
+        <h1>Hey <span id="head-highlight">Mr.Lazy</span> </h1>
+    </div>
+    <div class="count-displayer">
+
+        <span style="color: rgb(237, 143, 28);" >Searched </span>
+        <h1>
+            <span id="completed-search-count">0</span>
+            <span id="count-highlight">/</span>
+            <span id="total-search-count">0</span>
+        </h1>
+    </div>
+    <div class="point-displayer">
+        <span>Estimated Point </span>
+        <h1>
+            <span id="estimated-point">34</span>
+        </h1>
+    </div>
+</main>
+
 <body>
 </body>
-<script src="./search.js" ></script>
+<!-- <script src="./search.js"></script> -->
+
 </html>
