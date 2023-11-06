@@ -1,0 +1,30 @@
+main {
+    width: 100%;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.head-container,
+.count-displayer ,
+.point-displayer{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.head-container h1 {
+    font-size: 2rem;
+}
+
+#head-highlight{
+    color: rgb(47, 210, 164);
+}
+
+#count-highlight {
+    color: rgb(237, 143, 28);
+}
+
+.point-displayer{
+    color: rgb(44, 119, 224);
+}
