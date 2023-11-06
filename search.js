@@ -74,10 +74,16 @@ const pcSearch = [
 ];
 
 let textsArray = [];
+let pointLimit = 60;
 const isMobile = window.innerWidth < 768 && window.innerHeight < 1024;
 
-if (isMobile) { textsArray = mobileSearch }
-else { textsArray = pcSearch }
+if (isMobile) {
+  textsArray = mobileSearch
+}
+else {
+  textsArray = pcSearch
+  pointLimit = 90
+}
 
 let totalCount = document.getElementById('total-search-count').textContent = textsArray.length
 let CompletedCount = document.getElementById('completed-search-count')
@@ -120,7 +126,7 @@ function searchWithDelayInNewWindow(keyword, delay) {
 //Main Starting function
 async function performSearchesWithDelay(textsArray) {
   for (const keyword of textsArray) {
-    if (searchCount * 3 >= 90) return
+    if (searchCount * 3 >= pointLimit) return
     const randomIndex = Math.floor(Math.random() * delaysBetweenSearches.length)
     await searchWithDelayInNewWindow(keyword, delaysBetweenSearches[randomIndex]);
   }
